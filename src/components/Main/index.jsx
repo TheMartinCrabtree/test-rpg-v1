@@ -19,7 +19,10 @@ const saveLocalStorageData =(data, updateCallback)=>{
 const Main = (props)=>{
     const [gameData, setData] = useState(getLocalStorageData);
     console.log("gameData", gameData);
-    console.log("localStorage data", getLocalStorageData);
+    console.log("localStorage data", getLocalStorageData());
+
+    
+    
 
 
     return(
@@ -34,7 +37,9 @@ const Main = (props)=>{
                 <button onClick={()=>saveLocalStorageData(gameData, setData)} >update localStorage data</button>
             </div>
             <div>
-                <button>set data from localStorage</button>
+                <a href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(gameData))}`} download={"game-data.json"} >
+                    download JSON data
+                </a>
             </div>
             
 
