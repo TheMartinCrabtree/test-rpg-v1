@@ -1,10 +1,47 @@
 import React, {ReactNode, useState} from "react";
 import styled from "styled-components";
+import {Header} from './Header';
+import {MainNavBar} from './MainNavBar';
 
 const testData = [
-    {name: "angela"},
-    {name: "camille"},
+    {
+        name: "angela",
+        bio: "pixie punk"
+    },
+    {
+        name: "camille",
+        bio: "fem fatale"
+    },
 ];
+
+const MainContainer = styled.div`
+    background-color: lightgray;
+`;
+
+const LayoutWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    background-color: darkgray;
+    padding-left: 5px;
+    min-height: 50vh;
+`;
+const LeftContainer = styled.div`
+    width: 25vw;
+    background-color: darkgray;
+    height: auto;
+`;
+const RightContainer = styled.div`
+    width: 100%;
+    background-color: white;
+    padding-left: 5px;
+    height: auto;
+`;
+const FooterContainer = styled.div`
+    min-height: 15px;
+    background-color: black;
+    width: 100%;
+`
+
 
 const getLocalStorageData = () =>{
         let data = localStorage.getItem('game-data');
@@ -18,16 +55,21 @@ const saveLocalStorageData =(data, updateCallback)=>{
 
 const Main = (props)=>{
     const [gameData, setData] = useState(getLocalStorageData);
-    console.log("gameData", gameData);
-    console.log("localStorage data", getLocalStorageData());
-
-    
-    
-
+    const [selectedIndex, setSelectedIndex] = useState(undefined);
+    // console.log("gameData", gameData);
+    // console.log("localStorage data", getLocalStorageData());
 
     return(
-        <div>
-            <div>
+        <MainContainer>
+            <Header>Header Component</Header>
+            <MainNavBar>MainNavBar Component</MainNavBar>
+            <LayoutWrapper>
+                <LeftContainer>left container</LeftContainer>
+                <RightContainer>right container</RightContainer>
+
+            </LayoutWrapper>
+            <FooterContainer />
+            {/* <div>
                 <button onClick={()=>setData(testData)} >update data in state</button>
             </div>
             <div>
@@ -40,10 +82,11 @@ const Main = (props)=>{
                 <a href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(gameData))}`} download={"game-data.json"} >
                     download JSON data
                 </a>
-            </div>
+            </div> */}
+            
             
 
-        </div>
+        </MainContainer>
     )
 };
 
