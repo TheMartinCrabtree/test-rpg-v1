@@ -42,35 +42,35 @@ const saveLocalStorageData =(data, updateCallback)=>{
 const Main = (props)=>{
     const [gameData, setData] = useState(getLocalStorageData);
     const [selectedIndex, setSelectedIndex] = useState(undefined);
-    // console.log("gameData", gameData);
-    // console.log("localStorage data", getLocalStorageData());
+    console.log("gameData", gameData);
+    console.log("localStorage data", getLocalStorageData());
 
     return(
         <MainContainer>
-            <Header>Header Component</Header>
-            <MainNavBar>MainNavBar Component</MainNavBar>
+            <Header />
+            <MainNavBar />
             <LayoutWrapper>
-                <FileNavigator />
+                <FileNavigator data={gameData} setIndex={setSelectedIndex} />
                 <ContentViewer />
 
             </LayoutWrapper>
             <Footer />
-            {/* <div>
-                <button onClick={()=>setData(testData)} >update data in state</button>
-            </div>
-            <div>
-                <button onClick={()=>setData([])} >reset data in state</button>
-            </div>
-            <div>
-                <button onClick={()=>saveLocalStorageData(gameData, setData)} >update localStorage data</button>
-            </div>
-            <div>
-                <a href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(gameData))}`} download={"game-data.json"} >
-                    download JSON data
-                </a>
-            </div> */}
+           
             
-            
+            <div>
+                    <button onClick={()=>setData(testData)} >update data in state</button>
+                </div>
+                <div>
+                    <button onClick={()=>setData([])} >reset data in state</button>
+                </div>
+                <div>
+                    <button onClick={()=>saveLocalStorageData(gameData, setData)} >update localStorage data</button>
+                </div>
+                <div>
+                    <a href={`data:text/json;charset=utf-8,${encodeURIComponent(JSON.stringify(gameData))}`} download={"game-data.json"} >
+                        download JSON data
+                    </a>
+                </div>
 
         </MainContainer>
     )

@@ -3,14 +3,14 @@ import styled from "styled-components";
 
 const FooterContainer = styled.div`
     color: white;
-    min-height: 15px;
+    min-height: 20px;
     background-color: black;
     width: 100%;
 `
 
 const Footer=(props)=>{
 
-    return(<FooterContainer>Footer Component</FooterContainer>)
+    return(<FooterContainer>Footer Component Footer Component Footer Component</FooterContainer>)
 };
 
 export default Footer;
