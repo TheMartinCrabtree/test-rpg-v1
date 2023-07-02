@@ -1,7 +1,10 @@
 import React, {ReactNode, useState} from "react";
 import styled from "styled-components";
-import {Header} from './Header';
-import {MainNavBar} from './MainNavBar';
+import Header from '../Header';
+import MainNavBar from '../MainNavBar';
+import FileNavigator from "../FileNavigator";
+import ContentViewer from "../ContentViewer";
+import Footer from "../Footer";
 
 const testData = [
     {
@@ -25,23 +28,6 @@ const LayoutWrapper = styled.div`
     padding-left: 5px;
     min-height: 50vh;
 `;
-const LeftContainer = styled.div`
-    width: 25vw;
-    background-color: darkgray;
-    height: auto;
-`;
-const RightContainer = styled.div`
-    width: 100%;
-    background-color: white;
-    padding-left: 5px;
-    height: auto;
-`;
-const FooterContainer = styled.div`
-    min-height: 15px;
-    background-color: black;
-    width: 100%;
-`
-
 
 const getLocalStorageData = () =>{
         let data = localStorage.getItem('game-data');
@@ -64,11 +50,11 @@ const Main = (props)=>{
             <Header>Header Component</Header>
             <MainNavBar>MainNavBar Component</MainNavBar>
             <LayoutWrapper>
-                <LeftContainer>left container</LeftContainer>
-                <RightContainer>right container</RightContainer>
+                <FileNavigator />
+                <ContentViewer />
 
             </LayoutWrapper>
-            <FooterContainer />
+            <Footer />
             {/* <div>
                 <button onClick={()=>setData(testData)} >update data in state</button>
             </div>

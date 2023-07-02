@@ -11,7 +11,7 @@ const MainNavBar = (props)=>{
 
     return(
     <NavContainer>Main Nav Bar Component</NavContainer>
-    )
+    );
 };
 
 export default MainNavBar;
