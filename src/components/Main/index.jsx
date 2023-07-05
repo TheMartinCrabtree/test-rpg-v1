@@ -6,6 +6,8 @@ import FileNavigator from "../FileNavigator";
 import ContentViewer from "../ContentViewer";
 import Footer from "../Footer";
 
+// for a filtered search use a debounce function
+
 const testData = [
     {
         name: "angela",
@@ -41,16 +43,16 @@ const saveLocalStorageData =(data, updateCallback)=>{
 
 const Main = (props)=>{
     const [gameData, setData] = useState(getLocalStorageData);
-    const [selectedIndex, setSelectedIndex] = useState(undefined);
-    console.log("gameData", gameData);
-    console.log("localStorage data", getLocalStorageData());
+    const [selected, setSelectedIndex] = useState(0);
+    // console.log("gameData", gameData);
+    // console.log("localStorage data", getLocalStorageData());
 
     return(
         <MainContainer>
             <Header />
             <MainNavBar />
             <LayoutWrapper>
-                <FileNavigator data={gameData} setIndex={setSelectedIndex} />
+                <FileNavigator data={gameData} selected={selected} setSelected={setSelectedIndex} />
                 <ContentViewer />
 
             </LayoutWrapper>
