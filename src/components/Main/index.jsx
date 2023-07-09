@@ -17,6 +17,11 @@ const testData = [
         name: "camille",
         bio: "fem fatale"
     },
+    {
+        name: "hari",
+        bio: "fem fatale"
+    },
+    
 ];
 
 const MainContainer = styled.div`
@@ -46,14 +51,17 @@ const Main = (props)=>{
     const [selected, setSelectedIndex] = useState(0);
     // console.log("gameData", gameData);
     // console.log("localStorage data", getLocalStorageData());
+    const _updateSelected =(indexVal)=>{
+        setSelectedIndex(indexVal);
+    };
 
     return(
         <MainContainer>
             <Header />
             <MainNavBar />
             <LayoutWrapper>
-                <FileNavigator data={gameData} selected={selected} setSelected={setSelectedIndex} />
-                <ContentViewer />
+                <FileNavigator data={gameData} selected={selected} setSelected={_updateSelected} />
+                <ContentViewer bioData={gameData[selected]} />
 
             </LayoutWrapper>
             <Footer />

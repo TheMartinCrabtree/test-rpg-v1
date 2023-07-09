@@ -10,6 +10,11 @@ const RightContainer = styled.div`
     height: auto;
 `;
 
+const NameContainer = styled.div`
+    background-color: darkgray;
+    font-size: large;
+`
+
 const TextContainer = styled.div`
     background-color: black;
     color: white;
@@ -24,12 +29,16 @@ const EditorContainer = styled.div`
 
 
 const ContentViewer=(props)=>{
-
+    const {name, bio} = props;
     return(
     <RightContainer>
-        Content Viewer Component
-        <TextContainer>text container</TextContainer>
-        <EditorContainer>editor container</EditorContainer>
+        <NameContainer>
+            {name}
+        </NameContainer>
+        <TextContainer>{bio}</TextContainer>
+        <EditorContainer>
+            <InputWindow defaultText={bio} />
+        </EditorContainer>
     </RightContainer>);
 };
 
